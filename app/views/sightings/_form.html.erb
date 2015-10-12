@@ -1,0 +1,14 @@
+<%= render 'layouts/errors', :object => @sighting %>
+
+<%= form_for [@animal, @sighting] do |f| %>
+  <%= f.label 'Location' %>
+  <%= f.text_field :location %>
+  <%= f.label 'Longitude' %>
+  <%= f.text_field :longitude %>
+  <%= f.label 'Latitude' %>
+  <%= f.text_field :latitude %>
+  <%= f.label 'Date' %>
+  <%= f.date_field :date %>
+  <%= f.collection_select(:region_id, Region.all, :id, :name) %>
+  <%= f.submit %>
+<% end %>

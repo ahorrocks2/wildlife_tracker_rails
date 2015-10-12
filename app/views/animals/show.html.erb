@@ -2,6 +2,20 @@
 <h3><em><%= @animal.locality %></em></h3>
 <h3>Mortal enemies with <%= @animal.enemy %></h3>
 
+<%= link_to 'Add a Sighting', new_animal_sighting_path(@animal) %>
+
+<% if @animal.sightings.any? %>
+  <p>THIS ANIMAL IS EVERYWHERE</p>
+
+  <ul>
+    <% @animal.sightings.each do |sighting| %>
+      <li><%= link_to "#{sighting.location} -- #{sighting.date}", animal_sighting_path(@animal, sighting) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>It's hiding...</p>
+<% end %>
+
 <%= link_to "Edit", edit_animal_path(@animal) %>
 <%= link_to "Home", animals_path %>
 <%= link_to "Delete Animal", animal_path(@animal),
