@@ -1,0 +1,11 @@
+<%= render "layouts/errors", :object => @animal%>
+
+<%= form_for @animal do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :locality %>
+  <%= f.text_field :locality %>
+  <%= f.label :enemy %>
+  <%= f.text_field :enemy %>
+  <%= f.submit %>
+<% end %>
