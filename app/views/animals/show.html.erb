@@ -9,7 +9,7 @@
 
   <ul>
     <% @animal.sightings.each do |sighting| %>
-      <li><%= link_to "#{sighting.location} -- #{sighting.date}", animal_sighting_path(@animal, sighting) %></li>
+      <li><%= link_to "#{sighting.location} -- #{sighting.date.to_formatted_s(:long)}", animal_sighting_path(@animal, sighting) %></li>
     <% end %>
   </ul>
 <% else %>
